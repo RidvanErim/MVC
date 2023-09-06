@@ -1,0 +1,37 @@
+﻿@model BookEditViewModel
+
+<h3 class="text-center">Kitap Düzenleme Sayfası</h3>
+
+<form method="post" asp-controller="Book" asp-action="Edit">
+
+    <input asp-for="Book.Id" type="hidden" />
+   @* Geriye Id değerini de gönderiyorum fakat kullanıcı görmesin diye inputu gizliyorum*@
+
+    <div>
+        <label>Kitap Adı</label>
+        <input asp-for="Book.Name" type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Sayfa Sayısı</label>
+        <input asp-for="Book.PageCount" type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Yazar</label>
+        <select asp-items="@(new SelectList(Model.Authors,"Id", "FullName"))" asp-for="Book.AuthorId" class="form-control">
+            <option disabled selected>Seçiniz</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Kitap Türü</label>
+        <select asp-items="@(new SelectList(Model.BookTypes, "Id", "Name"))" asp-for="Book.BookTypeId" class="form-control"></select>
+    </div>
+
+
+    <button type="submit" class="btn btn-success mt-2">Düzenle</button>
+
+
+
+</form>

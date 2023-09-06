@@ -1,0 +1,21 @@
+﻿@model BookType
+
+<h3>Yeni Kitap Türü Ekleme Sayfası</h3>
+
+@*method = get -> Query string ile uri üzerinden veri gönderir.*@
+
+@*method = post -> network üzeriden paketli gönderir, uri üzerinde gözükmez*@
+
+<form method="post" asp-controller="BookType" asp-action="Create">
+
+    <div>
+    <label asp-for="Name">Kitap Türü</label>
+    <input asp-for="Name" type="text" class="form-control" />
+    </div>
+
+    <button  type="submit" class="btn btn-success mt-2">Kaydet</button>
+
+
+    @*BUTTON FORM İÇERİSİNDEYSE VE TYPE=SUBMIT İSE VERİ GÖNDERİR.*@
+
+</form>
